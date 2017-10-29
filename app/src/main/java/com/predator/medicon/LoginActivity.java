@@ -8,51 +8,47 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SignupActivity extends AppCompatActivity implements View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText inputEmail, inputPassword;
-    private Button  btnSignUp;
+    private Button buttonSignIn;
+    private EditText editTextEmail, editTextPassword;
+    private TextView textViewSignUp;
     private FirebaseAuth auth;
-    private TextView btnSignIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
-
+        setContentView(R.layout.activity_login);
 
         auth = FirebaseAuth.getInstance();
+
         if(auth.getCurrentUser() != null){
             finish();
             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
 
         }
 
-        btnSignIn = (TextView) findViewById(R.id.sign_in);
-        btnSignUp = (Button) findViewById(R.id.sign_up_button);
-        inputEmail = (EditText) findViewById(R.id.email);
-        inputPassword = (EditText) findViewById(R.id.password);
+        editTextEmail = (EditText) findViewById(R.id.email);
+        editTextPassword = (EditText) findViewById(R.id.password);
+        buttonSignIn = (Button) findViewById(R.id.sign_in_button);
+        textViewSignUp = (TextView) findViewById(R.id.sign_up);
 
-
-        btnSignUp.setOnClickListener(this);
-        btnSignIn.setOnClickListener(this);
+        buttonSignIn.setOnClickListener(this);
+        textViewSignUp.setOnClickListener(this);
 
     }
 
-    private void registerUser(){
-
-        String email = inputEmail.getText().toString().trim();
-        String password = inputPassword.getText().toString().trim();
+    public void userLogin(){
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
             Toast.makeText(this,"Pls enter mail",Toast.LENGTH_SHORT).show();
@@ -63,7 +59,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
-        auth.createUserWithEmailAndPassword(email,password)
+        auth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -71,11 +67,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                         if(task.isSuccessful()){
                                 finish();
                                 startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-
-                        }
-                        else {
-                            Toast.makeText(SignupActivity.this,"TRY AGAIN",Toast.LENGTH_SHORT).show();
-
                         }
                     }
                 });
@@ -83,11 +74,12 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        if(view == btnSignUp) {
-            registerUser();
+        if(view == buttonSignIn){
+            userLogin();
         }
-        if(view == btnSignIn){
-            startActivity(new Intent(this, LoginActivity.class));
+        if(view == textViewSignUp){
+            finish();
+            startActivity(new Intent(this,SignupActivity.class));
         }
 
     }

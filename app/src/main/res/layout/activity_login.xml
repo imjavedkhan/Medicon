@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.predator.medicon.SignupActivity"
+    tools:context="com.predator.medicon.LoginActivity"
     android:orientation="vertical">
 
     <EditText
@@ -22,20 +21,20 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         android:maxLines="1" />
-    
+
     <Button
-        android:id="@+id/sign_up_button"
+        android:id="@+id/sign_in_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/register"
+        android:text="sign in"
         android:layout_marginTop="16dp"
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/sign_in"
+        android:id="@+id/sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already Registered? SignIn Here"
+        android:text="Not have an account? sign up here"
         android:layout_gravity="center"/>
 
 </LinearLayout>
