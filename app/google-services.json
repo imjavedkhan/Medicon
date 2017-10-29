@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "854347118749-gqrmnrt9h7cair789r3rlspjtsfobpcr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.predator.medicon",
+            "certificate_hash": "9a594c12e9749f09bea7a9fe6a4be6c646dfaf58"
+          }
+        },
+        {
           "client_id": "854347118749-oefm93b3jlqi8q5k66vkamr9vcnlq26g.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "854347118749-oefm93b3jlqi8q5k66vkamr9vcnlq26g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
