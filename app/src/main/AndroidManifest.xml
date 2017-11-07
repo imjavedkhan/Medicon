@@ -19,7 +19,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".BloodBank" />
+        <activity android:name=".SpecialistActivity" />
+        <activity android:name=".HospitalActivity" />
+        <activity android:name=".AmbulanceActivity" />
+        <activity android:name=".CardioActivity" />
+        <activity android:name=".GenPhyActivity" />
+        <activity android:name=".DentistActivity"></activity>
     </application>
 
 </manifest>
