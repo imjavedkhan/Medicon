@@ -44,5 +44,24 @@
         android:onClick="ambulance2"
         android:text="@string/call" />
 
+    <EditText
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btnsubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv"
+        android:layout_marginTop="45dp"
+        android:layout_toStartOf="@+id/button3"
+        android:onClick="send"
+        android:text="Submit" />
+
 
 </RelativeLayout>

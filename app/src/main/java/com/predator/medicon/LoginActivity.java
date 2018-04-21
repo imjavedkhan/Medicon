@@ -36,10 +36,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         }
 
-        editTextEmail = (EditText) findViewById(R.id.email);
-        editTextPassword = (EditText) findViewById(R.id.password);
-        buttonSignIn = (Button) findViewById(R.id.sign_in_button);
-        textViewSignUp = (TextView) findViewById(R.id.sign_up);
+        editTextEmail = findViewById(R.id.email);
+        editTextPassword = findViewById(R.id.password);
+        buttonSignIn = findViewById(R.id.sign_in_button);
+        textViewSignUp = findViewById(R.id.sign_up);
 
         buttonSignIn.setOnClickListener(this);
         textViewSignUp.setOnClickListener(this);
@@ -66,6 +66,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         if(task.isSuccessful()){
                                 finish();
+
+
                                 startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                         }
                         else {

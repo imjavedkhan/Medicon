@@ -35,19 +35,19 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         FirebaseUser user= auth.getCurrentUser();
 
-        textViewUserEmail = (TextView) findViewById(R.id.textViewUserEmail);
+        textViewUserEmail = findViewById(R.id.textViewUserEmail);
 
         textViewUserEmail.setText("Welcome " + user.getEmail());
 
-        buttonLogout = (Button) findViewById(R.id.buttonLog);
+        buttonLogout = findViewById(R.id.buttonLog);
 
         buttonLogout.setOnClickListener(this);
 
-        infoListView = (ListView) findViewById(R.id.infoListView);
+        infoListView = findViewById(R.id.infoListView);
 
         String[] Option = {"Specialist","Blood Bank","Hospital","Ambulance"};
 
-        ListAdapter optionAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Option);
+        ListAdapter optionAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Option);
         infoListView.setAdapter(optionAdapter);
 
         infoListView.setOnItemClickListener(
